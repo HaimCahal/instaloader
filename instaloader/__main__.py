@@ -36,7 +36,7 @@ def usage_string():
     argv0 = os.path.basename(sys.argv[0])
     argv0 = "instaloader" if argv0 == "__main__.py" else argv0
     return """
-{0} [--comments] [--geotags]
+{0}  (Haim version) [--comments] [--geotags]
 {2:{1}} [--stories] [--highlights] [--tagged] [--reels] [--igtv]
 {2:{1}} [--login YOUR-USERNAME] [--fast-update]
 {2:{1}} profile | "#hashtag" | %%location_id | :stories | :feed | :saved
@@ -312,6 +312,7 @@ def _main(instaloader: Instaloader, targetlist: List[str],
             storyitem_filter,
             latest_stamps=latest_stamps,
             reels=download_reels,
+            max_count=max_count
         )
         if anonymous_retry_profiles:
             instaloader.context.log("Downloading anonymously: {}"
